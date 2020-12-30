@@ -58,6 +58,16 @@ class GetResponse
     }
 
     /**
+     * get single campaign
+     * @param string $campaign_id retrieved using API
+     * @return mixed
+     */
+    public function getCampaignContactsByParams($campaign_id, $ipAddress = null)
+    {
+        return $this->call('campaigns/' . $campaign_id . '/contacts?' .$this->setParams(['query' => compact('ipAddress')]));
+    }
+
+    /**
      * adding campaign
      * @param $params
      * @return mixed
